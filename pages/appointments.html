@@ -61,14 +61,13 @@
       </ul>
       <div class="nav-section-title">Actions</div>
       <ul class="dashboard-nav">
-        <li><a href="dashboard.html"><i class="bi bi-plus-circle"></i> Book a Test</a></li>
+        <li><a href="book-test.html"><i class="bi bi-plus-circle"></i> Book a Test</a></li>
         <li><a href="upload-prescription.html"><i class="bi bi-cloud-arrow-up"></i> Upload Prescription</a></li>
       </ul>
       <div class="nav-section-title">Account</div>
       <ul class="dashboard-nav mb-4">
         <li><a href="profile.html"><i class="bi bi-person"></i> My Profile</a></li>
-        <li><a href="#"><i class="bi bi-bell"></i> Notifications</a></li>
-        <li><a href="index.html" class="text-danger"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+        <li><a href="notifications.html"><i class="bi bi-bell"></i> Notifications</a></li>
       </ul>
             <div class="mt-auto">
         <div class="d-flex align-items-center gap-3 px-4 py-3 border-top d-lg-none">
@@ -79,9 +78,8 @@
             <i class="bi bi-arrow-left-right"></i>
           </button>
         </div>
-        <div class="d-flex align-items-center gap-3 p-4 border-top">
-          <img src="https://ui-avatars.com/api/?name=John+Doe&background=0c4a6e&color=fff" class="rounded-circle" width="40" alt="User">
-          <div><h6 class="mb-0 fw-bold small text-main">John Doe</h6><small class="text-muted" style="font-size: 0.75rem;">Patient ID: VC-8921</small></div>
+        <div class="p-4 border-top">
+          <a href="index.html" class="text-danger text-decoration-none d-flex align-items-center gap-2 fw-medium"><i class="bi bi-box-arrow-right fs-5"></i> Logout</a>
         </div>
       </div>
     </aside>
@@ -96,6 +94,13 @@
           <button id="theme-toggle" class="icon-btn text-body d-none d-lg-inline-flex" aria-label="Toggle Theme"><i class="bi bi-moon-stars" id="theme-icon"></i></button>
           <button id="rtl-toggle" class="icon-btn text-body d-none d-lg-inline-flex" aria-label="Toggle RTL"><i class="bi bi-arrow-left-right"></i></button>
           <div class="position-relative"><button class="icon-btn text-body position-relative"><i class="bi bi-bell"></i><span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span></button></div>
+          <div class="d-flex align-items-center gap-2 ms-2 border-start ps-3">
+            <img src="https://ui-avatars.com/api/?name=John+Doe&background=0c4a6e&color=fff" class="rounded-circle" width="36" alt="User">
+            <div class="text-start">
+              <h6 class="mb-0 fw-bold small text-main" style="line-height: 1.2;">John Doe</h6>
+              <small class="text-muted" style="font-size: 0.7rem;">VC-8921</small>
+            </div>
+          </div>
         </div>
       </header>
 

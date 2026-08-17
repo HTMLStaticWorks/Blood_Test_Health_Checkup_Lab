@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Dynamic Active State for Navigation
   const setActiveLink = () => {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const allLinks = document.querySelectorAll('.desktop-nav .nav-link-custom, .mobile-nav-links a:not(.text-primary)');
+    const allLinks = document.querySelectorAll('.desktop-nav .nav-link-custom, .desktop-nav .nav-dropdown-item, .mobile-nav-links a:not(.text-primary)');
     
     allLinks.forEach(link => {
       link.classList.remove('active');

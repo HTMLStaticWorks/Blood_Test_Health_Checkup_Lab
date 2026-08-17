@@ -508,10 +508,12 @@ img {
    ========================================= */
 .nav-dropdown {
   position: relative;
+  height: auto !important;
 }
 .nav-dropdown-menu {
   position: absolute;
   top: 100%;
+  margin-top: 15px;
   left: 0;
   background-color: var(--bg-surface);
   box-shadow: var(--shadow-sm);
