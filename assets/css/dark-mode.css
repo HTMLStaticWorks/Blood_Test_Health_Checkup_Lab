@@ -1,0 +1,108 @@
+/* 
+  VitaCore Diagnostics - Dark Mode
+*/
+
+[data-bs-theme="dark"] {
+  /* Brand Colors adjustment for contrast if needed */
+  --primary-color: #38bdf8;
+  --primary-light: #0c4a6e;
+  --primary-hover: #7dd3fc;
+  
+  --secondary-color: #2dd4bf;
+  --secondary-light: #115e59;
+  
+  --accent-color: #34d399;
+  
+  /* Surface & Background */
+  --bg-body: #0f172a; /* Deep Navy */
+  --bg-surface: #1e293b; /* Charcoal Surface */
+  --bg-surface-alt: #334155;
+  
+  /* Text Colors */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  /* Borders */
+  --border-color: #334155;
+}
+
+[data-bs-theme="dark"] body {
+  background-color: var(--bg-body);
+}
+
+[data-bs-theme="dark"] .site-header {
+  background-color: rgba(30, 41, 59, 0.95);
+}
+
+[data-bs-theme="dark"] .mobile-drawer {
+  background-color: var(--bg-surface);
+}
+
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select {
+  background-color: var(--bg-body);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus {
+  background-color: var(--bg-body);
+  border-color: var(--primary-color);
+  color: var(--text-main);
+}
+
+[data-bs-theme="dark"] .input-group-text {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+[data-bs-theme="dark"] .site-footer {
+  background-color: #020617; /* Very deep navy/black for footer */
+  border-top-color: var(--border-color);
+}
+
+[data-bs-theme="dark"] .premium-card {
+  background-color: var(--bg-surface);
+  border-color: var(--border-color);
+}
+
+[data-bs-theme="dark"] .card-icon-wrapper {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+[data-bs-theme="dark"] .premium-card:hover .card-icon-wrapper {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .btn-primary-custom {
+  background-color: var(--primary-color);
+  color: #0f172a;
+}
+[data-bs-theme="dark"] .btn-primary-custom:hover {
+  background-color: var(--primary-hover);
+}
+
+[data-bs-theme="dark"] .icon-btn {
+  background-color: var(--bg-surface-alt);
+  color: var(--text-main);
+}
+[data-bs-theme="dark"] .icon-btn:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+/* Ensure images don't look overly bright */
+[data-bs-theme="dark"] img {
+  opacity: 0.9;
+}
+/* Contact Hero overrides for Dark Mode */
+[data-bs-theme="dark"] #contact-hero.bg-primary {
+  background-color: transparent !important;
+}
+[data-bs-theme="dark"] #contact-hero .position-absolute {
+  opacity: 0.3 !important; /* Increase opacity slightly so image is more visible in dark mode */
+}

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Packages - VitaCore Diagnostics</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+  
+  <style>
+    /* Specific styles for responsive comparison table */
+    @media (max-width: 991px) {
+      .comparison-table-wrapper { display: none; }
+      .comparison-cards-wrapper { display: block !important; }
+    }
+    .comparison-cards-wrapper { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-between">
+        
+        <!-- Logo -->
+        <div class="col-auto">
+          <a href="index.html" class="navbar-brand-wrapper" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM20 8L12 20C12 24.4183 15.5817 28 20 28C24.4183 28 28 24.4183 28 20L20 8Z" fill="#32d3b4"/>
+            </svg>
+            <span style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;">VitaCore</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="col-auto desktop-nav">
+          <nav class="d-flex gap-2">
+            <div class="nav-dropdown d-flex align-items-center h-100">
+              <a href="#" class="nav-link-custom d-flex align-items-center gap-1">Home <i class="bi bi-chevron-down" style="font-size: 0.75rem; margin-top: 2px;"></i></a>
+              <div class="nav-dropdown-menu">
+                <a href="index.html" class="nav-dropdown-item nav-link-custom border-bottom">Home 1</a>
+                <a href="home-2.html" class="nav-dropdown-item nav-link-custom">Home 2</a>
+              </div>
+            </div>
+            <a href="about.html" class="nav-link-custom">About</a>
+            <a href="tests.html" class="nav-link-custom">Tests</a>
+            <a href="packages.html" class="nav-link-custom">Packages</a>
+            <a href="home-collection.html" class="nav-link-custom">Home Collection</a>
+            <a href="blog.html" class="nav-link-custom">Blog</a>
+            <a href="contact.html" class="nav-link-custom">Contact</a>
+            <a href="dashboard.html" class="nav-link-custom">Dashboard</a>
+          </nav>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="col-auto">
+          <div class="header-actions">
+            <button id="theme-toggle" class="icon-btn d-none d-lg-inline-flex" aria-label="Toggle Theme">
+              <i class="bi bi-moon-stars" id="theme-icon"></i>
+            </button>
+            <button id="rtl-toggle" class="icon-btn d-none d-lg-inline-flex" aria-label="Toggle RTL">
+              <i class="bi bi-arrow-left-right"></i>
+            </button>
+            
+            <div class="desktop-nav d-flex gap-3 align-items-center ms-3">
+              <a href="signup.html" class="btn-custom btn-primary-custom">Sign Up</a>
+            </div>
+
+            <!-- Hamburger (Mobile) -->
+            <button id="hamburger-btn" class="hamburger ms-2">
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close">&times;</button>
+    <nav class="mobile-nav-links">
+      <div class="mb-2">
+        <a href="#homeSubmenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between text-decoration-none w-100" style="padding: 0.75rem 0;">
+          Home <i class="bi bi-chevron-down fs-6 text-muted"></i>
+        </a>
+        <div class="collapse ps-3 mt-1 border-start border-2 border-primary-light ms-2" id="homeSubmenu">
+          <div class="d-flex flex-column">
+            <a href="index.html" class="py-2 text-muted small">Home 1</a>
+            <a href="home-2.html" class="py-2 text-muted small">Home 2</a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="tests.html">Tests</a>
+      <a href="packages.html">Packages</a>
+      <a href="home-collection.html">Home Collection</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+            <hr class="my-3 border-secondary opacity-25">
+      <div class="d-flex align-items-center gap-3 mb-3 px-2">
+        <button id="theme-toggle-mobile" class="icon-btn theme-toggle-btn border shadow-sm" aria-label="Toggle Theme" style="width:36px;height:36px;">
+          <i class="bi bi-moon-stars theme-icon-el" id="theme-icon-mobile"></i>
+        </button>
+        <button id="rtl-toggle-mobile" class="icon-btn rtl-toggle-btn border shadow-sm" aria-label="Toggle RTL" style="width:36px;height:36px;">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+      </div>
+      <a href="signup.html" class="btn-custom btn-primary-custom w-100 mt-2 text-center">Sign Up</a>
+    </nav>
+  </div>
+
+  <main class="main-content" style="padding-top: var(--header-height);">
+    
+    <!-- SECTION 1: PACKAGES HERO -->
+    <section class="py-5 bg-primary-light position-relative overflow-hidden reveal-fade">
+      <div class="container py-5 text-center position-relative z-1">
+        <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-white text-secondary shadow-sm mb-4">
+          <i class="bi bi-tags-fill"></i>
+          <span class="fw-bold small">Save up to 40%</span>
+        </div>
+        <h1 class="display-4 fw-bold mb-4">Preventive Health Packages</h1>
+        <p class="lead text-muted mx-auto" style="max-width: 700px;">Comprehensive full-body checkups designed for different age groups and lifestyles. Catch potential health issues early.</p>
+      </div>
+      <!-- Decorative background elements -->
+      <div class="position-absolute top-0 start-0 w-100 h-100 opacity-25" style="background-image: radial-gradient(var(--primary-color) 1px, transparent 1px); background-size: 30px 30px; pointer-events: none;"></div>
+    </section>
+
+    <!-- SECTION 2: FEATURED PACKAGES -->
+    <section class="section-padding bg-surface">
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          <!-- Package 1 -->
+          <div class="col-lg-4 col-md-6 reveal-fade">
+            <div class="premium-card position-relative p-0 border-0 h-100 d-flex flex-column shadow-lg">
+              <div class="bg-primary text-white p-4 text-center rounded-top-4">
+                <h4 class="mb-1 text-white">Basic Wellness</h4>
+                <p class="opacity-75 small mb-3">Ideal for ages 18-30</p>
+                <div class="d-flex justify-content-center align-items-end gap-1">
+                  <span class="display-5 fw-bold">$99</span>
+                </div>
+              </div>
+              <div class="p-4 bg-surface flex-grow-1 border border-top-0 rounded-bottom-4 d-flex flex-column">
+                <p class="text-muted small text-center mb-4">45 parameters covered</p>
+                <ul class="list-unstyled d-flex flex-column gap-3 mb-4 flex-grow-1">
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Complete Blood Count</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Blood Sugar Fasting</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Lipid Profile</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Kidney Function Test</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small text-decoration-line-through opacity-50"><i class="bi bi-dash-circle text-muted"></i> Thyroid Profile</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small text-decoration-line-through opacity-50"><i class="bi bi-dash-circle text-muted"></i> Vitamins D & B12</li>
+                </ul>
+                <a href="#" class="btn btn-outline-primary w-100 rounded-pill fw-bold">Book Package</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Package 2 (Featured) -->
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.1s;">
+            <div class="premium-card position-relative p-0 border-0 h-100 d-flex flex-column shadow-lg" style="transform: scale(1.05); z-index: 2;">
+              <div class="position-absolute top-0 start-50 translate-middle badge bg-secondary px-4 py-2 rounded-pill text-white shadow-sm" style="margin-top: -10px; font-size: 0.9rem;">Most Recommended</div>
+              <div class="bg-secondary text-white p-4 pt-5 text-center rounded-top-4">
+                <h4 class="mb-1 text-white">Complete Body</h4>
+                <p class="opacity-75 small mb-3">Ideal for ages 30-50</p>
+                <div class="d-flex justify-content-center align-items-end gap-1">
+                  <span class="display-5 fw-bold">$199</span>
+                </div>
+              </div>
+              <div class="p-4 bg-surface flex-grow-1 border border-top-0 border-secondary border-2 rounded-bottom-4 d-flex flex-column">
+                <p class="text-muted small text-center mb-4 text-primary fw-semibold">85 parameters covered</p>
+                <ul class="list-unstyled d-flex flex-column gap-3 mb-4 flex-grow-1">
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Complete Blood Count</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Blood Sugar Fasting & HbA1c</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Comprehensive Lipid Profile</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Kidney & Liver Function</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Thyroid Profile (T3, T4, TSH)</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Vitamins D & B12</li>
+                </ul>
+                <a href="#" class="btn btn-secondary w-100 rounded-pill fw-bold text-white shadow-sm">Book Package</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Package 3 -->
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.2s;">
+            <div class="premium-card position-relative p-0 border-0 h-100 d-flex flex-column shadow-lg">
+              <div class="bg-primary text-white p-4 text-center rounded-top-4">
+                <h4 class="mb-1 text-white">Senior Care Plus</h4>
+                <p class="opacity-75 small mb-3">Ideal for ages 50+</p>
+                <div class="d-flex justify-content-center align-items-end gap-1">
+                  <span class="display-5 fw-bold">$299</span>
+                </div>
+              </div>
+              <div class="p-4 bg-surface flex-grow-1 border border-top-0 rounded-bottom-4 d-flex flex-column">
+                <p class="text-muted small text-center mb-4">110 parameters covered</p>
+                <ul class="list-unstyled d-flex flex-column gap-3 mb-4 flex-grow-1">
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> All Complete Body Tests</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Cardiac Risk Markers</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Arthritis Screen (RA, Uric Acid)</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Iron Deficiency Profile</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Cancer Screening (PSA/CA125)</li>
+                  <li class="d-flex align-items-start gap-2 text-muted small"><i class="bi bi-check-circle-fill text-secondary"></i> Bone Health Check</li>
+                </ul>
+                <a href="#" class="btn btn-outline-primary w-100 rounded-pill fw-bold">Book Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PACKAGE COMPARISON -->
+    <section class="section-padding bg-surface-alt">
+      <div class="container reveal-fade">
+        <h2 class="display-6 fw-bold mb-5 text-center">Compare Packages</h2>
+        
+        <!-- Desktop Table -->
+        <div class="comparison-table-wrapper rounded-4 overflow-hidden shadow-lg bg-surface d-none d-lg-block">
+          <table class="table table-hover mb-0 text-center align-middle">
+            <thead class="bg-primary text-white">
+              <tr>
+                <th class="text-start py-4 ps-4 w-25 bg-primary text-white">Test Category</th>
+                <th class="py-4 bg-primary text-white">Basic Wellness<br><small class="fw-normal opacity-75">$99</small></th>
+                <th class="py-4 bg-secondary text-white">Complete Body<br><small class="fw-normal opacity-75">$199</small></th>
+                <th class="py-4 bg-primary text-white">Senior Care Plus<br><small class="fw-normal opacity-75">$299</small></th>
+              </tr>
+            </thead>
+            <tbody class="border-top-0">
+              <tr>
+                <td class="text-start fw-semibold ps-4">Complete Blood Count (24)</td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+              <tr>
+                <td class="text-start fw-semibold ps-4">Diabetes Screen (2)</td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+              <tr>
+                <td class="text-start fw-semibold ps-4">Lipid Profile (8)</td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+              <tr>
+                <td class="text-start fw-semibold ps-4">Thyroid Profile (3)</td>
+                <td><i class="bi bi-dash text-muted fs-4"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+              <tr>
+                <td class="text-start fw-semibold ps-4">Vitamin Profile (2)</td>
+                <td><i class="bi bi-dash text-muted fs-4"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+              <tr>
+                <td class="text-start fw-semibold ps-4">Cardiac Risk Markers (5)</td>
+                <td><i class="bi bi-dash text-muted fs-4"></i></td>
+                <td><i class="bi bi-dash text-muted fs-4"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+              <tr>
+                <td class="text-start fw-semibold ps-4">Cancer Screening (1)</td>
+                <td><i class="bi bi-dash text-muted fs-4"></i></td>
+                <td><i class="bi bi-dash text-muted fs-4"></i></td>
+                <td><i class="bi bi-check-circle-fill text-secondary fs-5"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <!-- Mobile Cards -->
+        <div class="comparison-cards-wrapper d-block d-lg-none">
+          <div class="row g-4">
+            <div class="col-12">
+              <div class="premium-card p-3 mb-3 h-auto">
+                <h5 class="fw-bold mb-3 border-bottom pb-2 text-primary">Basic Wellness ($99)</h5>
+                <ul class="list-unstyled small text-muted">
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Complete Blood Count</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Diabetes Screen</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Lipid Profile</li>
+                  <li><i class="bi bi-x text-danger fs-5"></i> Thyroid Profile</li>
+                  <li><i class="bi bi-x text-danger fs-5"></i> Vitamin Profile</li>
+                </ul>
+              </div>
+              <div class="premium-card p-3 mb-3 border-secondary border-2 h-auto">
+                <h5 class="fw-bold mb-3 border-bottom pb-2 text-secondary">Complete Body ($199)</h5>
+                <ul class="list-unstyled small text-muted">
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Complete Blood Count</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Diabetes Screen</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Lipid Profile</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Thyroid Profile</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Vitamin Profile</li>
+                  <li><i class="bi bi-x text-danger fs-5"></i> Cardiac Risk Markers</li>
+                </ul>
+              </div>
+              <div class="premium-card p-3 h-auto">
+                <h5 class="fw-bold mb-3 border-bottom pb-2 text-primary">Senior Care Plus ($299)</h5>
+                <ul class="list-unstyled small text-muted">
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Complete Body Tests included</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Cardiac Risk Markers</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Cancer Screening</li>
+                  <li><i class="bi bi-check text-secondary fs-5"></i> Arthritis Screen</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: RECOMMENDATIONS -->
+    <section class="section-padding bg-surface">
+      <div class="container text-center reveal-fade">
+        <h2 class="display-6 fw-bold mb-5">Who Should Choose Which Package?</h2>
+        
+        <div class="row justify-content-center g-4">
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.1s;">
+            <div class="premium-card p-4 text-center h-100">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Young adult" class="rounded-circle mx-auto d-block mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+              <h5 class="fw-bold">Young Adults (18-30)</h5>
+              <p class="text-muted small px-3 mb-0">If you have a generally healthy lifestyle and want an annual baseline check, choose <span class="fw-bold text-primary">Basic Wellness</span>.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.2s;">
+            <div class="premium-card p-4 text-center h-100">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Middle aged adult" class="rounded-circle mx-auto d-block mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+              <h5 class="fw-bold">Adults (30-50)</h5>
+              <p class="text-muted small px-3 mb-0">To monitor stress-related parameters, thyroid, and vitamin deficiencies, choose <span class="fw-bold text-secondary">Complete Body</span>.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.3s;">
+            <div class="premium-card p-4 text-center h-100">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=400&q=80" alt="Senior adult" class="rounded-circle mx-auto d-block mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+              <h5 class="fw-bold">Seniors (50+)</h5>
+              <p class="text-muted small px-3 mb-0">For deep screening of age-related conditions like arthritis, osteoporosis, and cardiac risks, choose <span class="fw-bold text-primary">Senior Care Plus</span>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CTA -->
+    <section data-bs-theme="light" class="section-padding bg-primary text-white text-center position-relative overflow-hidden">
+      <div class="container position-relative z-1 reveal-fade">
+        <h2 class="display-5 fw-bold mb-4 text-white">Protect Your Future Health</h2>
+        <p class="lead mb-5 opacity-75 mx-auto" style="max-width: 600px;">Preventive healthcare is the best investment you can make. Book a package today and stay ahead of potential health issues.</p>
+        <a href="tests.html" class="btn btn-secondary rounded-pill px-5 py-3 fw-bold text-white shadow-lg">Book Health Checkup</a>
+      </div>
+      <!-- Background pattern -->
+      <svg class="position-absolute bottom-0 start-0 opacity-10 w-100" viewBox="0 0 1440 320" preserveAspectRatio="none" style="height: auto;">
+        <path fill="#ffffff" fill-opacity="1" d="M0,224L60,213.3C120,203,240,181,360,176C480,171,600,181,720,186.7C840,192,960,192,1080,176C1200,160,1320,128,1380,112L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+      </svg>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Column 1 -->
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="navbar-brand-wrapper footer-brand mb-3" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM20 8L12 20C12 24.4183 15.5817 28 20 28C24.4183 28 28 24.4183 28 20L20 8Z" fill="#32d3b4"/>
+            </svg>
+            <span style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;">VitaCore</span>
+          </a>
+          <p class="footer-text pe-lg-4">Providing precise, reliable, and swift diagnostic services to empower your healthcare decisions. Your health is our priority.</p>
+          <div class="d-flex align-items-center gap-2 mt-3 text-white">
+            <i class="bi bi-shield-check text-secondary fs-5"></i>
+            <span class="small fw-medium">NABL & CAP Accredited</span>
+          </div>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        
+        <!-- Column 2 -->
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="tests.html">Tests</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 3 -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Patient Services</h4>
+          <ul class="footer-links">
+            <li><a href="tests.html">Book a Test</a></li>
+            <li><a href="home-collection.html">Home Sample Collection</a></li>
+            <li><a href="upload-prescription.html">Upload Prescription</a></li>
+            <li><a href="reports.html">Download Reports</a></li>
+            <li><a href="login.html">Patient Login</a></li>
+          </ul>
+        </div>
+        
+        <!-- Column 4 -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <ul class="footer-links">
+            <li class="d-flex gap-2 text-muted mb-3"><i class="bi bi-telephone text-secondary mt-1"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+            <li class="d-flex gap-2 text-muted mb-3"><i class="bi bi-envelope text-secondary mt-1"></i> <a href="mailto:support@vitacore.com">support@vitacore.com</a></li>
+            <li class="d-flex gap-2 text-muted mb-3"><i class="bi bi-geo-alt text-secondary mt-1"></i> 123 Healthcare Ave, Medical District, NY 10001</li>
+            <li class="d-flex gap-2 text-muted"><i class="bi bi-clock text-secondary mt-1"></i> Mon-Sun: 6:00 AM - 10:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-2 mb-md-0">&copy; 2026 VitaCore Diagnostics. All rights reserved.</p>
+        <div class="d-flex gap-3 small">
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn btn-primary rounded-circle ms-3 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;" aria-label="Back to top" title="Back to top">
+            <i class="bi bi-arrow-up"></i>
+          </button>
+        </div></div>
+    </div>
+  </footer>
+
+  
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

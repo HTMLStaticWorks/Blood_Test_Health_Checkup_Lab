@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitaCore Diagnostics - Better Testing, Better Health</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  <meta name="description"
+    content="VitaCore Diagnostics offers highly accurate blood tests, full body health checkups, and home sample collection with secure digital reporting.">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-between">
+
+        <!-- Logo -->
+        <div class="col-auto">
+          <a href="index.html" class="navbar-brand-wrapper"
+            style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM20 8L12 20C12 24.4183 15.5817 28 20 28C24.4183 28 28 24.4183 28 20L20 8Z"
+                fill="#32d3b4" />
+            </svg>
+            <span
+              style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;">VitaCore</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="col-auto desktop-nav">
+          <nav class="d-flex gap-2">
+            <div class="nav-dropdown d-flex align-items-center h-100">
+              <a href="#" class="nav-link-custom d-flex align-items-center gap-1">Home <i class="bi bi-chevron-down" style="font-size: 0.75rem; margin-top: 2px;"></i></a>
+              <div class="nav-dropdown-menu">
+                <a href="index.html" class="nav-dropdown-item nav-link-custom border-bottom">Home 1</a>
+                <a href="home-2.html" class="nav-dropdown-item nav-link-custom">Home 2</a>
+              </div>
+            </div>
+            <a href="about.html" class="nav-link-custom">About</a>
+            <a href="tests.html" class="nav-link-custom">Tests</a>
+            <a href="packages.html" class="nav-link-custom">Packages</a>
+            <a href="home-collection.html" class="nav-link-custom">Home Collection</a>
+            <a href="blog.html" class="nav-link-custom">Blog</a>
+            <a href="contact.html" class="nav-link-custom">Contact</a>
+            <a href="dashboard.html" class="nav-link-custom">Dashboard</a>
+          </nav>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="col-auto">
+          <div class="header-actions">
+            <button id="theme-toggle" class="icon-btn d-none d-lg-inline-flex" aria-label="Toggle Theme">
+              <i class="bi bi-moon-stars" id="theme-icon"></i>
+            </button>
+            <button id="rtl-toggle" class="icon-btn d-none d-lg-inline-flex" aria-label="Toggle RTL">
+              <i class="bi bi-arrow-left-right"></i>
+            </button>
+
+            <div class="desktop-nav d-flex gap-3 align-items-center ms-3">
+              <a href="signup.html" class="btn-custom btn-primary-custom">Sign Up</a>
+            </div>
+
+            <!-- Hamburger (Mobile) -->
+            <button id="hamburger-btn" class="hamburger ms-2">
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close">&times;</button>
+    <nav class="mobile-nav-links">
+      <div class="mb-2">
+        <a href="#homeSubmenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between text-decoration-none w-100" style="padding: 0.75rem 0;">
+          Home <i class="bi bi-chevron-down fs-6 text-muted"></i>
+        </a>
+        <div class="collapse ps-3 mt-1 border-start border-2 border-primary-light ms-2" id="homeSubmenu">
+          <div class="d-flex flex-column">
+            <a href="index.html" class="py-2 text-muted small">Home 1</a>
+            <a href="home-2.html" class="py-2 text-muted small">Home 2</a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="tests.html">Tests</a>
+      <a href="packages.html">Packages</a>
+      <a href="home-collection.html">Home Collection</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+      <hr class="my-3 border-secondary opacity-25">
+      <div class="d-flex align-items-center gap-3 mb-3 px-2">
+        <button id="theme-toggle-mobile" class="icon-btn theme-toggle-btn border shadow-sm" aria-label="Toggle Theme"
+          style="width:36px;height:36px;">
+          <i class="bi bi-moon-stars theme-icon-el" id="theme-icon-mobile"></i>
+        </button>
+        <button id="rtl-toggle-mobile" class="icon-btn rtl-toggle-btn border shadow-sm" aria-label="Toggle RTL"
+          style="width:36px;height:36px;">
+          <i class="bi bi-arrow-left-right"></i>
+        </button>
+      </div>
+      <a href="signup.html" class="btn-custom btn-primary-custom w-100 mt-2 text-center">Sign Up</a>
+    </nav>
+  </div>
+
+  <main class="main-content" style="padding-top: 0;">
+
+    <!-- ================= SECTION 1: EDITORIAL HERO ================= -->
+    <section class="position-relative vh-100 d-flex align-items-center justify-content-center overflow-hidden">
+      <!-- Full width image -->
+      <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; filter: brightness(0.4);">
+      </div>
+
+      <div class="container position-relative z-1 text-center text-white reveal-fade pt-5">
+        <h1 class="display-3 fw-bold mb-4" style="text-shadow: 0 4px 10px rgba(0,0,0,0.5);">Better Testing. <br>Better
+          Decisions. <span class="text-secondary">Better Health.</span></h1>
+        <p class="lead mb-5 mx-auto opacity-75" style="max-width: 700px;">
+          Empowering patients and doctors with precise, timely, and accessible diagnostic insights using
+          state-of-the-art laboratory technology.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 btn-mobile-stack">
+          <a href="tests.html" class="btn btn-primary rounded-pill px-5 py-3 fw-bold shadow-lg">Book Test</a>
+          <a href="contact.html" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold">Find a Lab</a>
+          <a href="home-collection.html"
+            class="btn btn-secondary rounded-pill px-5 py-3 fw-bold shadow-lg text-white">Home Collection</a>
+        </div>
+      </div>
+
+      <!-- Scroll down indicator -->
+      <div class="position-absolute bottom-0 start-50 translate-middle-x pb-4 text-white opacity-50 z-1"
+        style="animation: bounce 2s infinite;">
+        <i class="bi bi-chevron-down fs-3"></i>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: TEST CATEGORIES ================= -->
+    <section class="section-padding">
+      <div class="container text-center reveal-fade">
+        <h2 class="display-6 fw-bold mb-5">Explore Health Categories</h2>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Category 1 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.1s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-droplet-half fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Blood Tests</h5>
+                <p class="text-muted small mb-0">150+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 2 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.2s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-activity fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Diabetes Tests</h5>
+                <p class="text-muted small mb-0">25+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 3 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.3s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-lungs-fill fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Thyroid Tests</h5>
+                <p class="text-muted small mb-0">15+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 4 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.4s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-sun-fill fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Vitamin Tests</h5>
+                <p class="text-muted small mb-0">40+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 5 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.1s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-heart-pulse-fill fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Heart Health</h5>
+                <p class="text-muted small mb-0">30+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 6 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.2s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-capsule fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Liver Health</h5>
+                <p class="text-muted small mb-0">20+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 7 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.3s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-water fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Kidney Health</h5>
+                <p class="text-muted small mb-0">25+ Tests</p>
+              </div>
+            </a>
+          </div>
+          <!-- Category 8 -->
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.4s;">
+            <a href="tests.html" class="text-decoration-none">
+              <div class="premium-card p-4 text-center hover-lift">
+                <div
+                  class="bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                  style="width: 70px; height: 70px;">
+                  <i class="bi bi-gender-female fs-3"></i>
+                </div>
+                <h5 class="fw-bold text-main mb-1">Women's Health</h5>
+                <p class="text-muted small mb-0">50+ Tests</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: HOW IT WORKS ================= -->
+    <section class="section-padding bg-surface-alt">
+      <div class="container">
+        <div class="text-center mb-5 reveal-fade">
+          <span class="text-secondary fw-semibold">Patient Journey</span>
+          <h2 class="display-6 fw-bold mt-2">How It Works</h2>
+        </div>
+
+        <div class="row g-4 position-relative">
+          <div class="col-lg-3 col-md-6 col-sm-6 text-center reveal-fade" style="transition-delay: 0.1s;">
+            <div
+              class="bg-white rounded-circle shadow d-flex align-items-center justify-content-center mx-auto mb-4 position-relative z-1"
+              style="width: 100px; height: 100px;">
+              <i class="bi bi-search fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold">1. Choose Test</h5>
+            <p class="text-muted small px-2">Browse our wide range of tests and health packages.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6 text-center reveal-fade" style="transition-delay: 0.2s;">
+            <div
+              class="bg-white rounded-circle shadow d-flex align-items-center justify-content-center mx-auto mb-4 position-relative z-1"
+              style="width: 100px; height: 100px;">
+              <i class="bi bi-calendar-check fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold">2. Book Appointment</h5>
+            <p class="text-muted small px-2">Select home collection or lab visit and confirm time.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6 text-center reveal-fade" style="transition-delay: 0.3s;">
+            <div
+              class="bg-white rounded-circle shadow d-flex align-items-center justify-content-center mx-auto mb-4 position-relative z-1"
+              style="width: 100px; height: 100px;">
+              <i class="bi bi-bandaid fs-1 text-primary"></i>
+            </div>
+            <h5 class="fw-bold">3. Sample Collection</h5>
+            <p class="text-muted small px-2">Our certified technician handles the process safely.</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-6 text-center reveal-fade" style="transition-delay: 0.4s;">
+            <div
+              class="bg-primary rounded-circle shadow d-flex align-items-center justify-content-center mx-auto mb-4 position-relative z-1"
+              style="width: 100px; height: 100px;">
+              <i class="bi bi-phone fs-1 text-white"></i>
+            </div>
+            <h5 class="fw-bold">4. Get Digital Report</h5>
+            <p class="text-muted small px-2">Access your secure reports on your digital dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: ACCURACY & TECHNOLOGY ================= -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 reveal-fade">
+            <h2 class="display-6 fw-bold mb-4">Precision Driven by <span class="text-primary">Advanced Technology</span>
+            </h2>
+            <p class="text-muted mb-4">We utilize state-of-the-art robotic analyzers and automated processing to
+              eliminate human error, ensuring you get the most accurate results possible.</p>
+
+            <ul class="list-unstyled mb-5">
+              <li class="d-flex align-items-start gap-3 mb-3">
+                <div class="text-secondary mt-1"><i class="bi bi-shield-check fs-5"></i></div>
+                <div>
+                  <h6 class="fw-bold mb-1">Stringent Quality Control</h6>
+                  <p class="text-muted small mb-0">Multi-level verification protocols.</p>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-3 mb-3">
+                <div class="text-secondary mt-1"><i class="bi bi-upc-scan fs-5"></i></div>
+                <div>
+                  <h6 class="fw-bold mb-1">Barcoded Sample Tracking</h6>
+                  <p class="text-muted small mb-0">Ensuring zero mix-ups from collection to report.</p>
+                </div>
+              </li>
+              <li class="d-flex align-items-start gap-3">
+                <div class="text-secondary mt-1"><i class="bi bi-cpu fs-5"></i></div>
+                <div>
+                  <h6 class="fw-bold mb-1">Automated Processing</h6>
+                  <p class="text-muted small mb-0">AI-assisted analysis for faster turnaround.</p>
+                </div>
+              </li>
+            </ul>
+
+            <div class="row g-4 border-top pt-4">
+              <div class="col-sm-6">
+                <h3 class="display-5 fw-bold text-primary count-up">99.9</h3>
+                <p class="text-muted small fw-medium">Processing Accuracy %</p>
+              </div>
+              <div class="col-sm-6">
+                <h3 class="display-5 fw-bold text-secondary count-up">500</h3>
+                <p class="text-muted small fw-medium">Tests Processed (K+)</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal-fade" style="transition-delay: 0.2s;">
+            <div class="rounded-4 overflow-hidden shadow-lg">
+              <img src="https://images.pexels.com/photos/34642915/pexels-photo-34642915.jpeg"
+                alt="Advanced laboratory machinery" class="img-fluid w-100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: PATIENT STORIES ================= -->
+    <section class="section-padding bg-surface-alt">
+      <div class="container text-center reveal-fade">
+        <span class="text-secondary fw-semibold">Testimonials</span>
+        <h2 class="display-6 fw-bold mt-2 mb-5">Patient Stories</h2>
+
+        <!-- Simplified Carousel / Flex Layout -->
+        <div class="row justify-content-center g-4">
+          <!-- Story 1 -->
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.1s;">
+            <div class="premium-card p-4 text-center h-100 d-flex flex-column">
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted mb-4 fst-italic">"The home collection service was incredibly convenient. The
+                phlebotomist was professional, on time, and completely painless. Got my reports on my phone the next
+                morning."</p>
+              <div class="d-flex align-items-center justify-content-center gap-3 mt-auto">
+                <img src="https://ui-avatars.com/api/?name=Sarah+J&background=0c4a6e&color=fff" alt="Sarah J"
+                  class="rounded-circle" width="50" height="50">
+                <div class="text-start">
+                  <h6 class="mb-0 fw-bold">Sarah Jenkins</h6>
+                  <p class="text-muted small mb-0">Complete Wellness</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Story 2 -->
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.2s;">
+            <div class="premium-card p-4 text-center h-100 d-flex flex-column">
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+              </div>
+              <p class="text-muted mb-4 fst-italic">"VitaCore's dashboard makes tracking my diabetes incredibly easy. I
+                can see the history of all my HbA1c tests over the years in beautiful charts. Highly recommended for
+                chronic care."</p>
+              <div class="d-flex align-items-center justify-content-center gap-3 mt-auto">
+                <img src="https://ui-avatars.com/api/?name=David+M&background=0d9488&color=fff" alt="David M"
+                  class="rounded-circle" width="50" height="50">
+                <div class="text-start">
+                  <h6 class="mb-0 fw-bold">David Miller</h6>
+                  <p class="text-muted small mb-0">Diabetes Care</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Story 3 -->
+          <div class="col-lg-4 col-md-6 reveal-fade" style="transition-delay: 0.3s;">
+            <div class="premium-card p-4 text-center h-100 d-flex flex-column">
+              <div class="text-warning mb-3">
+                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                  class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              </div>
+              <p class="text-muted mb-4 fst-italic">"Super clean walk-in clinic and the staff is wonderful. My doctor
+                recommended them for their accuracy, and the fast turnaround time for results was a huge relief."</p>
+              <div class="d-flex align-items-center justify-content-center gap-3 mt-auto">
+                <img src="https://ui-avatars.com/api/?name=Emily+R&background=059669&color=fff" alt="Emily R"
+                  class="rounded-circle" width="50" height="50">
+                <div class="text-start">
+                  <h6 class="mb-0 fw-bold">Emily Roberts</h6>
+                  <p class="text-muted small mb-0">Thyroid Profile</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: FINAL CTA ================= -->
+    <section data-bs-theme="light" class="section-padding bg-primary text-white text-center position-relative overflow-hidden">
+      <div class="position-absolute top-0 start-0 w-100 h-100"
+        style="background-image: url('https://images.unsplash.com/photo-1584308666744-24d5e4b2d56a?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; opacity: 0.1;">
+      </div>
+
+      <div class="container position-relative reveal-fade z-1">
+        <h2 class="display-5 fw-bold mb-4 text-white">Take the First Step Toward Better Health</h2>
+        <p class="lead mb-5 mx-auto opacity-75" style="max-width: 600px;">Book a test today. Take advantage of our free
+          home collection service and secure digital reporting system.</p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mb-5">
+          <a href="tests.html" class="btn btn-secondary rounded-pill px-5 py-3 fw-bold text-white shadow">Book a
+            Test</a>
+          <a href="contact.html" class="btn btn-outline-light rounded-pill px-5 py-3 fw-bold">Contact Laboratory</a>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-center gap-4 opacity-75 small">
+          <span class="d-flex align-items-center gap-1"><i class="bi bi-house-door-fill"></i> Home Collection
+            Available</span>
+          <span class="d-flex align-items-center gap-1"><i class="bi bi-file-earmark-medical-fill"></i> Digital
+            Reports</span>
+          <span class="d-flex align-items-center gap-1"><i class="bi bi-person-circle"></i> Secure Patient
+            Account</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Column 1 -->
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="navbar-brand-wrapper footer-brand mb-3"
+            style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+              style="flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM20 8L12 20C12 24.4183 15.5817 28 20 28C24.4183 28 28 24.4183 28 20L20 8Z"
+                fill="#32d3b4" />
+            </svg>
+            <span
+              style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;">VitaCore</span>
+          </a>
+          <p class="footer-text pe-lg-4">Providing precise, reliable, and swift diagnostic services to empower your
+            healthcare decisions. Your health is our priority.</p>
+          <div class="d-flex align-items-center gap-2 mt-3 text-white">
+            <i class="bi bi-shield-check text-secondary fs-5"></i>
+            <span class="small fw-medium">NABL & CAP Accredited</span>
+          </div>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="col-lg-2 col-md-6">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="tests.html">Tests</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Patient Services</h4>
+          <ul class="footer-links">
+            <li><a href="tests.html">Book a Test</a></li>
+            <li><a href="home-collection.html">Home Sample Collection</a></li>
+            <li><a href="upload-prescription.html">Upload Prescription</a></li>
+            <li><a href="reports.html">Download Reports</a></li>
+            <li><a href="login.html">Patient Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="col-lg-3 col-md-6">
+          <h4 class="footer-heading">Contact Us</h4>
+          <ul class="footer-links">
+            <li class="d-flex gap-2 text-muted mb-3"><i class="bi bi-telephone text-secondary mt-1"></i> <a
+                href="tel:+1234567890">+1 (234) 567-890</a></li>
+            <li class="d-flex gap-2 text-muted mb-3"><i class="bi bi-envelope text-secondary mt-1"></i> <a
+                href="mailto:support@vitacore.com">support@vitacore.com</a></li>
+            <li class="d-flex gap-2 text-muted mb-3"><i class="bi bi-geo-alt text-secondary mt-1"></i> 123 Healthcare
+              Ave, Medical District, NY 10001</li>
+            <li class="d-flex gap-2 text-muted"><i class="bi bi-clock text-secondary mt-1"></i> Mon-Sun: 6:00 AM - 10:00
+              PM</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-2 mb-md-0">&copy; 2026 VitaCore Diagnostics. All rights reserved.</p>
+        <div class="d-flex gap-3 small">
+          <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="btn btn-primary rounded-circle ms-3 d-flex align-items-center justify-content-center"
+            style="width: 32px; height: 32px;" aria-label="Back to top" title="Back to top">
+            <i class="bi bi-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

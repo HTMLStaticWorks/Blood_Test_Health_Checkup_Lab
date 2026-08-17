@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - VitaCore Diagnostics</title>
+  <link rel="icon" href="../assets/images/favicon.svg" type="image/svg+xml">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-surface">
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-between">
+        
+        <!-- Logo -->
+        <div class="col-auto">
+          <a href="index.html" class="navbar-brand-wrapper" style="display: inline-flex; align-items: center; gap: 12px; text-decoration: none;">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM20 8L12 20C12 24.4183 15.5817 28 20 28C24.4183 28 28 24.4183 28 20L20 8Z" fill="#32d3b4"/>
+            </svg>
+            <span style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px;">VitaCore</span>
+          </a>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <div class="col-auto desktop-nav">
+          <nav class="d-flex gap-2">
+            <div class="nav-dropdown d-flex align-items-center h-100">
+              <a href="#" class="nav-link-custom d-flex align-items-center gap-1">Home <i class="bi bi-chevron-down" style="font-size: 0.75rem; margin-top: 2px;"></i></a>
+              <div class="nav-dropdown-menu">
+                <a href="index.html" class="nav-dropdown-item nav-link-custom border-bottom">Home 1</a>
+                <a href="home-2.html" class="nav-dropdown-item nav-link-custom">Home 2</a>
+              </div>
+            </div>
+            <a href="about.html" class="nav-link-custom">About</a>
+            <a href="tests.html" class="nav-link-custom">Tests</a>
+            <a href="packages.html" class="nav-link-custom">Packages</a>
+            <a href="home-collection.html" class="nav-link-custom">Home Collection</a>
+            <a href="blog.html" class="nav-link-custom">Blog</a>
+            <a href="contact.html" class="nav-link-custom">Contact</a>
+            <a href="dashboard.html" class="nav-link-custom">Dashboard</a>
+          </nav>
+        </div>
+
+        <!-- Header Actions -->
+        <div class="col-auto">
+          <div class="header-actions">
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+              <i class="bi bi-moon-stars" id="theme-icon"></i>
+            </button>
+            <button id="rtl-toggle" class="icon-btn" aria-label="Toggle RTL">
+              <i class="bi bi-arrow-left-right"></i>
+            </button>
+            
+            <div class="desktop-nav d-flex gap-3 align-items-center ms-3">
+              <a href="signup.html" class="btn-custom btn-primary-custom">Sign Up</a>
+            </div>
+
+            <!-- Hamburger (Mobile) -->
+            <button id="hamburger-btn" class="hamburger ms-2">
+              <i class="bi bi-list"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close">&times;</button>
+    <nav class="mobile-nav-links">
+      <div class="mb-2">
+        <a href="#homeSubmenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between text-decoration-none w-100" style="padding: 0.75rem 0;">
+          Home <i class="bi bi-chevron-down fs-6 text-muted"></i>
+        </a>
+        <div class="collapse ps-3 mt-1 border-start border-2 border-primary-light ms-2" id="homeSubmenu">
+          <div class="d-flex flex-column">
+            <a href="index.html" class="py-2 text-muted small">Home 1</a>
+            <a href="home-2.html" class="py-2 text-muted small">Home 2</a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="tests.html">Tests</a>
+      <a href="packages.html">Packages</a>
+      <a href="home-collection.html">Home Collection</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+      </div>
+      <a href="signup.html" class="btn-custom btn-primary-custom w-100 mt-2 text-center">Sign Up</a>
+    </nav>
+  </div>
+
+  <main class="flex-grow-1 d-flex align-items-center justify-content-center" style="padding-top: var(--header-height);">
+    <div class="container py-5 text-center reveal-fade">
+      <div class="position-relative d-inline-block mb-4">
+        <h1 class="display-1 fw-bold text-primary" style="font-size: 150px; opacity: 0.1;">404</h1>
+        <div class="position-absolute top-50 start-50 translate-middle">
+          <i class="bi bi-heartbreak text-secondary" style="font-size: 80px;"></i>
+        </div>
+      </div>
+      <h2 class="display-6 fw-bold mb-3">Oops! Page Not Found</h2>
+      <p class="lead text-muted mb-5 mx-auto" style="max-width: 500px;">The diagnostic page you are looking for seems to have been misplaced. Don't worry, let's get you back to health.</p>
+      
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="index.html" class="btn btn-primary rounded-pill px-5 py-3 fw-bold"><i class="bi bi-house-door me-2"></i> Back to Home</a>
+        <a href="tests.html" class="btn btn-outline-primary rounded-pill px-5 py-3 fw-bold">Browse Tests</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
