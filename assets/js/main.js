@@ -164,17 +164,23 @@ document.addEventListener('DOMContentLoaded', () => {
   collapseToggles.forEach(toggle => {
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
-      const targetId = toggle.getAttribute('href').substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.classList.toggle('show');
-        const icon = toggle.querySelector('.bi-chevron-down');
-        if (icon) {
-          icon.style.transition = 'transform 0.3s ease';
-          if (targetElement.classList.contains('show')) {
-            icon.style.transform = 'rotate(180deg)';
-          } else {
-            icon.style.transform = 'rotate(0deg)';
+      const href = toggle.getAttribute('href');
+      const target = toggle.getAttribute('data-bs-target');
+      const targetSelector = target || href;
+      
+      if (targetSelector) {
+        const targetId = targetSelector.startsWith('#') ? targetSelector.substring(1) : targetSelector;
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.classList.toggle('show');
+          const icon = toggle.querySelector('.bi-chevron-down');
+          if (icon) {
+            icon.style.transition = 'transform 0.3s ease';
+            if (targetElement.classList.contains('show')) {
+              icon.style.transform = 'rotate(180deg)';
+            } else {
+              icon.style.transform = 'rotate(0deg)';
+            }
           }
         }
       }

@@ -81,9 +81,12 @@
     <button class="drawer-close" id="drawer-close">&times;</button>
     <nav class="mobile-nav-links">
       <div class="mb-2">
-        <a href="#homeSubmenu" data-bs-toggle="collapse" class="d-flex align-items-center justify-content-between text-decoration-none w-100" style="padding: 0.75rem 0;">
-          Home <i class="bi bi-chevron-down fs-6 text-muted"></i>
-        </a>
+        <div class="position-relative w-100">
+          <a href="index.html" class="d-flex align-items-center text-decoration-none w-100" style="padding: 0.75rem 0; color: inherit;">Home</a>
+          <span data-bs-toggle="collapse" data-bs-target="#homeSubmenu" class="position-absolute top-0 end-0 h-100 d-flex align-items-center justify-content-center" style="width: 40px; cursor: pointer; z-index: 10;">
+            <i class="bi bi-chevron-down fs-6 text-muted"></i>
+          </span>
+        </div>
         <div class="collapse ps-3 mt-1 border-start border-2 border-primary-light ms-2" id="homeSubmenu">
           <div class="d-flex flex-column">
             <a href="index.html" class="py-2 text-muted small">Home 1</a>
@@ -194,24 +197,24 @@
               
               <form id="contactForm" novalidate>
                 <div class="row g-4">
-                  <div class="col-md-6">
+                  <div class="col-12">
                     <label for="fullName" class="form-label fw-medium">Full Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control form-control-lg bg-surface-alt border-0" id="fullName" placeholder="John Doe" required>
+                    <input type="text" class="form-control form-control-lg bg-surface-alt border" id="fullName" required>
                     <div class="invalid-feedback">Please enter your full name.</div>
                   </div>
                   <div class="col-md-6">
                     <label for="email" class="form-label fw-medium">Email Address <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control form-control-lg bg-surface-alt border-0" id="email" placeholder="john@example.com" required>
+                    <input type="email" class="form-control form-control-lg bg-surface-alt border" id="email" required>
                     <div class="invalid-feedback">Please enter a valid email address.</div>
                   </div>
                   <div class="col-md-6">
                     <label for="phone" class="form-label fw-medium">Phone Number <span class="text-danger">*</span></label>
-                    <input type="tel" class="form-control form-control-lg bg-surface-alt border-0" id="phone" placeholder="+1 234 567 8900" required>
+                    <input type="tel" class="form-control form-control-lg bg-surface-alt border" id="phone" required>
                     <div class="invalid-feedback">Please enter a valid phone number.</div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-12">
                     <label for="service" class="form-label fw-medium">Service / Enquiry</label>
-                    <select class="form-select form-select-lg bg-surface-alt border-0" id="service">
+                    <select class="form-select form-select-lg bg-surface-alt border" id="service">
                       <option value="">Select a service</option>
                       <option value="book_test">Book a Test</option>
                       <option value="home_collection">Home Collection</option>
@@ -221,7 +224,7 @@
                   </div>
                   <div class="col-12">
                     <label for="message" class="form-label fw-medium">Your Message <span class="text-danger">*</span></label>
-                    <textarea class="form-control bg-surface-alt border-0" id="message" rows="5" placeholder="How can we help you today?" required></textarea>
+                    <textarea class="form-control bg-surface-alt border" id="message" rows="5" placeholder="How can we help you today?" required></textarea>
                     <div class="invalid-feedback">Please provide a message.</div>
                   </div>
                   <div class="col-12 text-center mt-4">
